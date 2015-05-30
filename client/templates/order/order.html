@@ -1,0 +1,14 @@
+<template name="order">
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">order</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="empty-view">
+        {{> ionIcon icon="ios-star"}}
+        No order yet!
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

@@ -1,0 +1,86 @@
+<template name="productsShow">
+
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton class="button-positive" text=false}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
+      {{> ionIcon icon='ios-upload-outline'}}
+    </button>
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">商品详情</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      <div class="product-detail">
+
+        {{#with product}}
+
+          {{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}
+            <!-- {{> _voteButton}} -->
+            <h2 class="product-title">
+              <a href="{{url}}" target="_blank" class="positive">{{name}}</a>
+            </h2>
+            <p>
+              {{tagline}}
+            </p>
+            {{#with author}}
+              <p>
+                <small>卖家：<a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
+              </p>
+            {{/with}}
+            <h2 class="product-title">
+              售价：{{price}}
+            </h2>
+            <span class="date-posted">
+              {{datePosted}}
+            </span>
+          {{/ionItem}}
+          <div class="padding product-detail-upvotes">
+            <h5>购买数量：
+              <button class="button button-positive button-small button-square" data-action="minus">
+                {{>ionIcon icon="ios-minus-empty"}}
+              </button>
+              <!-- <label class="item item-input">
+                    <textarea name="counters" rows="1" placeholder="1"></textarea>
+              </label> -->
+              <small>{{countersnum}}</small>
+              <button class="button button-positive button-small button-square" data-action="plus">
+                {{>ionIcon icon="ios-plus-empty"}}
+              </button>
+              </h5>
+            {{#each voters}}
+              <a href="{{pathFor 'users.show'}}">
+                {{> avatar user=this size="small" shape="circle"}}
+              </a>
+            {{/each}}
+          </div>
+        {{/with}}
+
+        <!-- <div class="padding product-detail-comments">
+          <h5>Comments</h5>
+          {{#with product}}
+            <button class="button button-positive button-small button-circle button-new-comment" data-action="new-comment">
+              {{>ionIcon icon="plus"}}
+            </button>
+          {{/with}}
+        </div>
+
+        <div class="list">
+          {{#each comments}}
+            {{> _comment}}
+          {{/each}}
+        </div> -->
+
+      </div>
+      <div class="padding">
+        <button type="submit" class="btn button button-positive button-block submit" data-action="new-comment">确定下单</button>
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

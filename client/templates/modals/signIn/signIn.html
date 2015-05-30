@@ -1,0 +1,21 @@
+<template name="signIn">
+  {{#ionModal title="我的订单"}}
+
+    <div class="padding text-left sign-in-modal">
+      <!-- <p>
+        <img src="/favicon-160x160.png" width=80 height=80 />
+        <br>
+        <strong>Hey! Please sign in to do that :)</strong>
+      </p> -->
+
+      <p>
+        <strong>商品标题：</strong>{{name}}</p>
+        <p><strong>支付金额：</strong>{{allprice}}
+      </p>
+    </div>
+        <button data-action="sign-in" type="submit" class="btn button button-positive button-block submit">
+          确定支付
+        </button>
+
+  {{/ionModal}}
+</template>
